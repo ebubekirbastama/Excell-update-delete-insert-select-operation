@@ -1,4 +1,6 @@
-﻿using System.Data;
+using System;
+using System.Collections;
+using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
 
@@ -17,6 +19,7 @@ namespace excell_okuma_islemleri
         public string xlsxad;//Excel Yolu ve adı.
         #endregion
         #region Metodlar
+
         /// <summary>
         /// Bu metodun Görevi Otomatik olarak bağlantınızı açmaktır...
         /// </summary>
@@ -121,6 +124,24 @@ namespace excell_okuma_islemleri
             adtr.Fill(dt);
             dg.DataSource = dt;
             EBSdisconneciton();
+        }
+        public ArrayList excelkolonisimlerilisteleme(string cmd)
+        {
+            ArrayList ary = new ArrayList();
+            OleDbCommand kmt = new OleDbCommand(cmd, EBSconneciton());
+            try
+            {
+                foreach (var item in EBSCon.GetSchema("Columns").Rows)
+                {
+                    ary.Add(((DataRow)item).ItemArray[3]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "EBS Securty");
+            }
+
+            return ary;
         }
         #endregion
     }
