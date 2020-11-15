@@ -9,7 +9,7 @@
 - Excell dataGridView Veri Aktarma.
 - Excell OleDbDataReader ile Veri Çekme.
 - Excell ListBox veri Aktarma.
-
+- Excell Kolon İsimlerini Listeleme.
 # Ücretli Destek ve Bağış Yapmak için Whatshapp
 - https://api.whatsapp.com/send?phone=905554128854&text=Merhaba
 
